@@ -198,6 +198,7 @@ $(document).ready(function () {
                 var solvetime = $("#solvetime").val();
 				var totalsolve = $("#totalsolve").val();
                 alert('Time ended!'+totalsolve+solvetime);
+                updateLeaderboardTime(ename, uname, solvetime, totalsolve);
             }else if( (CurrentTime+ 5000) == EndTime){
             	GuiTimer.css('color','#faa');
             }
@@ -257,7 +258,7 @@ function clickPlay( ){
 
 function updateLeaderboardTime(ename, uname, solvetime, totalsolve){
 	 
-	alert("Updating leaderboard" +solvetime+totalsolve);
+	alert("Updating leaderboard" + uname+ename+ solvetime+totalsolve);
 	//update leaderboard
 	//call updatepoints
 	 var data = { email: ename, uname: uname, solvetime: totalsolve };
