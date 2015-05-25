@@ -17,10 +17,12 @@ var cfenv = require('cfenv');
 
 // serve the files out of ./public as our main files
 //app.use(express.static(__dirname + '/public'));
+ 
+ 
 app.use(express.static(path.join(__dirname, '/public')));
-app.use('/images',express.static(path.join(__dirname, 'public/images')));
-app.use('/js',express.static(path.join(__dirname, 'public/js')));
-app.use('/stylesheets',express.static(path.join(__dirname, 'public/stylesheets')));
+//app.use('/images',express.static(path.join(__dirname, 'public/images')));
+//app.use('/js',express.static(path.join(__dirname, 'public/js')));
+//app.use('/stylesheets',express.static(path.join(__dirname, 'public/stylesheets')));
 
 //Shows register page
 app.get('/register', function (req, res) {
@@ -99,59 +101,55 @@ app.get('/showchallenge/:edition', function (req, res) {
 
 });
  
-//check answers
-app.get('/checkanswer/:challengenum/:answer/:uname', function (req, res) {
-   var challengeid = req.params.challengenum;
-   var answer = req.params.answer;
+//update leaderboard
+app.post('/updateboard/:uname/:ename/:solvetime/totalsolve', function (req, res) {
+
    var uname = req.params.uname;
+   var solvetime = req.params.solvetime;
+   var totalsolve = req.params.totalsolve;
+   var ename = req.params.ename;
 
    res.writeHead(200, {'Content-Type': 'text/plain'});
   
-
- 
    	var MongoClient = require('mongodb').MongoClient, assert = require('assert');
 	 
 	var url = 'mongodb://IbmCloud_upcdb41b_8rfkqk6s_hupucuih:KjLPoJbMHQ0ysKneuW6ANowFd5tfgIAd@ds037812.mongolab.com:37812/IbmCloud_upcdb41b_8rfkqk6s';
 
 	// Use connect method to connect to the Server 
 	MongoClient.connect(url, function(err, db) {
-	  assert.equal(null, err);
 	  
 		if(err) {
 			console.log("failed to connect to the database");
 			res.write('Not Connected  ');
 		} else {
 			console.log("Connected correctly to server");
-	  		//res.write('Test Connected '); 
 
-	 		var collection = db.collection('challenges');
-	 		
-	 		var ObjectID = require('mongodb').ObjectID;
-	 		var note ="";
+	 		var collection = db.collection('users');
 
-			cid = new ObjectID(challengeid); 
- 
-			collection.find().toArray(function(err, challenge){
-				//if(answer == challenge[0].q1[0].answer){
-		  		//	note= "Answer is correct";
-		  		//	//update points here
-		  		//}else{
-		  		//	note = "Try again!";
-		  		//}
-		  		//res.write(note);
-			    res.write(JSON.stringify(challenge));
+ 			var msg="Out of the woods";
+ 			var user1 = { "email" : ename, "uname" : uname, "points": solvetime };
+
+			// Insert some users
+			collection.insert(user1, function(err, result) {
+			   	if(err){
+			   		msg="err";
+			   	}else{
+			   		msg="added";
+			    }
+			    res.write(msg);
+			    res.end();
 			});
-		  	
-
-	 		// res.write(challengeid+answer+uname);
+			 
+ 
 		} 
+
 		 
 	});
  
 
 });
 
-//update points and attempts after answering
+/*update points and attempts after answering
 app.get('/updatepoints/:challengenum/:correct/:uname', function (req, res) {
    var challengeid = req.params.challengenum;
    var correct = req.params.correct; // 0 - correct
@@ -159,8 +157,6 @@ app.get('/updatepoints/:challengenum/:correct/:uname', function (req, res) {
 
    res.writeHead(200, {'Content-Type': 'text/plain'});
   
-
- 
    	var MongoClient = require('mongodb').MongoClient, assert = require('assert');
 	 
 	var url = 'mongodb://IbmCloud_upcdb41b_8rfkqk6s_hupucuih:KjLPoJbMHQ0ysKneuW6ANowFd5tfgIAd@ds037812.mongolab.com:37812/IbmCloud_upcdb41b_8rfkqk6s';
@@ -185,7 +181,7 @@ app.get('/updatepoints/:challengenum/:correct/:uname', function (req, res) {
 
  			var msg="Out of the woods";
 
- 
+ 		 
  			collection.findAndModify({
 			    query: { ucid:ucid },
 			    sort: { ucid: 1 },
@@ -199,23 +195,7 @@ app.get('/updatepoints/:challengenum/:correct/:uname', function (req, res) {
 			    	}
 			    	res.write(msg+ucid+JSON.stringify(doc));
 			    }); 
- 			
-	 
 			 
- 			/*
- 			collection.findOne({ucid: ucid}, function(err, doc) {
- 			 {
-		    "findAndModify": "users_challenge",
-		    "query": {"ucid": "JeffSanz_555aa797e4b07b6ac504ed09"},
-		    "sort": {},
-		    "update": {"$set": {"c1d": [ { "points": 200, "attempts": 1, "status": 3 } ]}},
-		    "new": false,
-		    "fields": {},
-		    "upsert": false
-
-			res.write(msg+ucid+JSON.stringify(doc));
-			});
-	 		*/
 		} 
 
 		 
@@ -223,6 +203,7 @@ app.get('/updatepoints/:challengenum/:correct/:uname', function (req, res) {
  
 
 });
+*/
 
 
 //display challenge page 
