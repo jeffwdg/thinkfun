@@ -58,7 +58,7 @@ height: 30px;
 		
 		input.done {
 			font-weight: bold;
-			color: green;
+			color: green !important;
 		}
 		
 		.active,
