@@ -2,9 +2,7 @@ $(document).ready(function () {
 
 	//get user details
 	 
-	var ename = $("#ename").val();
-	var uname = $("#uname").val();
-
+	
 
 	var puzzleData = [
 			 	{
@@ -197,6 +195,10 @@ $(document).ready(function () {
                 GuiTimer.css('color','#f00');
                 var solvetime = $("#solvetime").val();
 				var totalsolve = $("#totalsolve").val();
+				var ename = $("#ename").val();
+				var uname = $("#uname").val();
+
+
                 alert('Time ended!'+totalsolve+solvetime);
                 updateLeaderboardTime(ename, uname, solvetime, totalsolve);
             }else if( (CurrentTime+ 5000) == EndTime){
