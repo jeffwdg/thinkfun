@@ -201,8 +201,11 @@ $(document).ready(function () {
 				var ename = $("#ename").val();
 				var uname = $("#uname").val();
 
-
+				$("#user_preg .panel .panel-heading h3").text("Time is up.");
+		  		$("#user_preg .panel .panel-body").html("<h1>Sorry!</h1><p>Time is up! </h1><p>You have completed "+totalsolve+" words. Check your rank on the leaderboard</p>");
+		  		$("#user_preg").css("display","block");	
                 //alert('Time ended!'+totalsolve+solvetime);
+
                 updateLeaderboardTime(ename, uname, solvetime, totalsolve);
             }else if( (CurrentTime+ 5000) == EndTime){
             	GuiTimer.css('color','#faa');
@@ -272,7 +275,8 @@ function updateLeaderboardTime(ename, uname, solvetime, totalsolve){
 	//alert("Updating leaderboard" + uname+ename+ solvetime+totalsolve);
 	//update leaderboard
 	//call updatepoints
-	 var data = { email: ename, uname: uname, solvetime: totalsolve };
+	var data = { email: ename, uname: uname, solvetime: totalsolve };
+
 
 	$.ajax({
 		url: "https://thinkfun.mybluemix.net/updateboard/"+ename+"/"+solvetime+"/"+totalsolve,
@@ -280,11 +284,19 @@ function updateLeaderboardTime(ename, uname, solvetime, totalsolve){
 		dataType: 'html',
 		success: function(results){
 		  	console.log(results); 
-		  	$("#user_preg .panel .panel-heading h3").text("Time's up");
-		  	$("#user_preg .panel .panel-body").html("<h1>Time's up</h1><p>"+results+"</h1>");
-		  	$("#user_preg").css("display","block");	 
+		  	if(totalsolve == 18){
+		  		$("#user_preg .panel .panel-heading h3").text("Puzzle complete.");
+		  		$("#user_preg .panel .panel-body").html("<h1>Congratulations!</h1><p>"+results+"</p>");
+		  		$("#user_preg").css("display","block");	 
+		  	}
 
-		  	window.location.replace("https://thinkfun.mybluemix.net/leaderboard");
+
+		  	toLeaderboard();
+
 		}	
 		});
+}
+
+function toLeaderboard() {
+    setTimeout(function(){ window.location.replace("https://thinkfun.mybluemix.net/leaderboard"); }, 3000);
 }
