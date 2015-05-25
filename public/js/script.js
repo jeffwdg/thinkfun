@@ -275,7 +275,7 @@ function updateLeaderboardTime(ename, uname, solvetime, totalsolve){
 	 var data = { email: ename, uname: uname, solvetime: totalsolve };
 
 	$.ajax({
-		url: "https://thinkfun.mybluemix.net/updateboard/"+uname+"/"+ename+"/"+solvetime+"/"+totalsolve,
+		url: "https://thinkfun.mybluemix.net/updateboard/"+ename+"/"+solvetime+"/"+totalsolve,
 		type: 'post',
 		dataType: 'html',
 		success: function(results){
