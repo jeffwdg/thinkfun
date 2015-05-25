@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Leaderboard | ThinkFun</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="stylesheet" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+     
+  </head>
+
+  <body onload="checkLeaderboard()">
+  	 <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/"><img src="images/thinkfunlogo.png" alt="ThinkFun"/></a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	         
+	        <li class="active"><a href="leaderboard">Leaderboard</a></li>
+	        <!-- <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="#">Action</a></li>
+	            <li><a href="#">Another action</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">One more separated link</a></li>
+	          </ul>
+	        </li>
+	        -->
+	      </ul>
+	      <!--<form class="navbar-form navbar-left" role="search">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search">
+	        </div>
+	        <button type="submit" class="btn btn-default">Submit</button>
+	      </form>
+	      -->
+	      <ul class="nav navbar-nav navbar-right" style="display:none">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="#">Profile</a></li>
+	            <li><a href="#">Settings</a></li>
+	            
+	          </ul>
+	        </li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div class="container bs-docs-container">
+		<div class="panel panel-default col-md-6" style="margin:auto;float: none !important;">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">May Challenge Leaderboard</div>
+			
+			  <!-- Table -->
+			 <table class="table" id="tableboard">
+	        <thead>
+	          <tr>
+	            <th>#</th>
+	            <th>User</th>
+	            <th>Points</th>
+	            <th style="display:none;">Challenge 2 Date Completed</th>
+	          </tr>
+	        </thead>
+	        <tbody>
+	          <!--<tr>
+	            <th scope="row">1</th>     
+	            <td><img class="tf_userpic" src="https://w3.ibm.com/bluepages/api/BluePagesPhoto.jsp?EMAIL=sanchejs@ph.ibm.com">Mark</td>
+	            <td>1212</td>
+	            <td> </td>
+	          </tr>
+	          -->
+	        </tbody>
+	      </table>
+		</div>
+	</div>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script>
+	 
+	function checkLeaderboard(){
+ 
+		$.ajax({
+			url: "https://thinkfun.mybluemix.net/showleaderboard",
+			type: 'get',
+			dataType: 'json',
+			success: function(results){
+				
+				//results = JSON.stringify(results);
+				console.log(results.users.length);
+				console.log(results);
+ 	 			//alert(results);
+ 	 			var i = 1;
+ 	 			$.each(results.users, function (key, value) {
+				    console.log(key, value);
+				    first_style = (i == 1) ? " color: rgb(208, 4, 12); font-size: 25px;" : "font-size: 20px;"
+				    
+					$('#tableboard tr:last').after('<tr><td scope="row"><b>'+i+'</b></td><td> '+value.uname+'</td><td> <b style="'+first_style+'">'+value.points+'</b></td><td style="display:none;"></td>');
+					i++;
+				});
+			}	
+		});
+	}
+	//<img class="tf_userpic" src="https://w3.ibm.com/bluepages/api/BluePagesPhoto.jsp?EMAIL='+value.email+'">
+	</script>
+  </body>
+
+</html>

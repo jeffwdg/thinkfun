@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Challenge | ThinkFun</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon.png">
+    <link rel="stylesheet" href="../stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+     
+  </head>
+
+  <body onpageshow="checkChallenge()">
+  	 <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="/"><img src="../images/thinkfunlogo.png" alt="ThinkFun"/></a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	         
+	        <li><a href="/leaderboard">Leaderboard</a></li>
+	        <!-- <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="#">Action</a></li>
+	            <li><a href="#">Another action</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">Separated link</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#">One more separated link</a></li>
+	          </ul>
+	        </li>
+	        -->
+	      </ul>
+	      <!--<form class="navbar-form navbar-left" role="search">
+	        <div class="form-group">
+	          <input type="text" class="form-control" placeholder="Search">
+	        </div>
+	        <button type="submit" class="btn btn-default">Submit</button>
+	      </form>
+	      -->
+	      <ul class="nav navbar-nav navbar-right" style="display:none">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User <span class="caret"></span></a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="#">Profile</a></li>
+	            <li><a href="#">Settings</a></li>
+	            
+	          </ul>
+	        </li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	<div class="container bs-docs-container">
+		<div class="panel panel-default col-md-9" style="margin:auto;float: none !important;">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">May Edition</h3>
+		  </div>
+		  <div class="panel-body">
+		  	<div id="notifalert" class="alert alert-danger alert-dismissible" role="alert" style="display:none;">
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  <p id="notif" >Checking your answer. Please wait. Still thinking...</p>
+			</div>
+		    <img id="challenge_pic" width="100%" src="../images/thinkfunlogo.png"/>
+		  </div>
+		  <div class="panel-footer">
+
+		  	<input type="text" class="form-control" id="qanswer" placeholder="Type your answer here without spaces. e.g. abc ">
+		  	<br>
+		  	<input type="text" class="form-control" id="uname" placeholder="Type your username">
+		  	<br>
+		  	<input type="submit" class="btn btn-default btn-primary" onclick="submitAnswer()" value="Submit"/>
+		  </div>
+		</div>
+ 
+	</div>
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script>
+	 
+	function checkChallenge(){
+ 		
+ 		var url  = window.location.href;
+ 		var challengeid = url.substring(url.lastIndexOf("/") + 1);
+ 		var pic = document.getElementById("challenge_pic");
+
+ 		pic.src = "../images/loading-x.gif";
+
+ 		var img = "";
+ 
+	   if(challengeid.toString() == "555aa797e4b07b6ac504ed07a"){
+	   	img="../images/c1q1.jpg";	
+	   }else if(challengeid.toString() == "555aa797e4b07b6ac504ed07b"){
+	   	img="../images/c1q2.jpg";
+	   }else if(challengeid.toString() == "555aa797e4b07b6ac504ed07c"){
+	   	img="../images/c1q3.jpg";
+	   }else{
+	   	img="../images/thinkfunlogo.png";
+	   	$(".panel-footer").css("display","none");
+	   	$("#notif").text("Oops! You are in the wrong page. Go to homepage.");
+	    $("#notifalert").css("display","block");
+	   }
+	    pic.src = img;
+	    
+		/*    
+			$.ajax({
+				url: "https://thinkfun.mybluemix.net/showchallenge/"+url_code,
+				type: 'get',
+				dataType: 'html',
+				success: function(results){
+	 				 //results = JSON.stringify(results);
+	 	 			 //alert(results);
+	 	 			 //$(".panel-title").text(results[0].["qtitle"]);
+	 	 			 console.log(results);
+	 	 			 //console.log(results[0].q1[0]["source"]);
+	 	 			 
+	  				 pic.src = results;
+	 	 			
+	 	 			 
+				}	
+			});
+		*/
+
+	}
+ 	 
+	function submitAnswer(){
+ 		
+ 		var url  = window.location.href;
+ 		var result= url.split('/');
+		var url_code = result[result.length-1];
+ 		var answer = $("#qanswer").val();
+ 		var uname = $("#uname").val();
+ 		var ans = "";
+
+ 		var imgr = Math.floor((Math.random() * 14) + 1);
+		var pic = document.getElementById("challenge_pic");
+
+ 		//alert(url_code+ans);
+ 		if(!answer || !uname){
+ 			$("#notif").text("Enter an answer and your username.");
+ 		}else{
+ 			
+	 		if(url_code == "555aa797e4b07b6ac504ed07a"){
+			  	ans = "u472bmt"; //results[0].q1[0].answer;
+			  	lnk = "555aa797e4b07b6ac504ed07b";
+			}
+			else if(url_code == "555aa797e4b07b6ac504ed07b"){
+			  	ans = "bcd"; //results[0].q2[0].answer;
+			  	lnk = "555aa797e4b07b6ac504ed07c";
+			}
+			else if(url_code == "555aa797e4b07b6ac504ed07c"){
+			  	ans = "c"; //results[0].q3[0].answer;
+			}else{
+				
+				$("#notif").text("Oops! You are in the wrong page. Go to homepage.");
+			}
+
+			$("#notif").html("Checking your answer. Please wait...");
+
+			var isCorrect = 0;
+		 	if(ans != ""){
+		 		
+			 	if((answer.toLowerCase()).localeCompare(ans) == 0){
+			 		$("#notifalert").removeClass("alert-danger").addClass("alert-success");
+
+			 	 	if(url_code != "555aa797e4b07b6ac504ed07c"){
+			 	 		setTimeout('$("#notif").html("You are correct. Check out the next challenge <a href="+lnk+">here</a>");', 4000);
+			 	 		
+			 	 	}else{
+			 	 		pic.src = "../images/loading-x.gif";
+			 	 		setTimeout('$("#notif").html("<h2>Congratulations!</h2><h4>Challenge completed. Thank you for joining. Now challenge your colleagues.</h4>");',5000);
+			 	 		
+				 	 	img="../images/s"+imgr+".gif";
+				 	 	pic.src = img;
+				 	 	
+			 	 	}
+			 	 	
+
+			 	}else{
+			 		$("#notif").text("Oops! Think again. :(");
+			 			isCorrect=1;
+			 			 
+			 	}	
+
+			 	//call updatepoints
+			 	$.ajax({
+					url: "https://thinkfun.mybluemix.net/updatepoints/"+url_code+"/"+isCorrect+"/"+uname,
+					type: 'get',
+					dataType: 'html',
+					success: function(results){
+		  				console.log(results); 
+		  				$("#notif").text(results);
+					}	
+				});
+
+		 	}else{
+				$("#notif").text("Ops! You are in the wrong page.  Go to homepage.");
+			}
+
+
+ 
+	  	}			
+
+		 	 					 
+		/*	$.ajax({
+				url: "https://thinkfun.mybluemix.net/checkAnswer/"+url_code+"/"+answer+"/"+uname,
+				type: 'get',
+				dataType: 'html',
+				success: function(results){
+	  				console.log(results); 
+	
+				}	
+			});
+		*/
+ 		
+ 		$("#notifalert").css("display","block");
+ 
+	}
+	</script>
+  </body>
+
+</html>

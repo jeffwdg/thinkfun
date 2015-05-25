@@ -1,0 +1,10 @@
+applications:
+- services:
+  - MongoLab-8j
+  disk_quota: 1024M
+  host: thinkfun
+  name: thinkfun
+  path: .
+  domain: mybluemix.net
+  instances: 1
+  memory: 256M
