@@ -6,144 +6,144 @@ $(document).ready(function () {
 
 	var puzzleData = [
 			 	{
-					clue: "First letter of greek alphabet",
-					answer: "alpha",
+					clue: "A Java based mobile agent platform and library for building mobile agents based applications. ",
+					answer: "aglet",
 					position: 1,
 					orientation: "across",
 					startx: 1,
 					starty: 1
 				},
 			 	{
-					clue: "Not a one ___ motor, but a three ___ motor",
-					answer: "phase",
+					clue: "Basic unit of information in a quantum computer .",
+					answer: "qubit",
 					position: 3,
 					orientation: "across",
 					startx: 7,
 					starty: 1
 				},
 				{
-					clue: "Created from a separation of charge",
-					answer: "capacitance",
+					clue: "Software systems designed to support interoperable machine-to-machine interaction over a network",
+					answer: "webservices",
 					position: 5,
 					orientation: "across",
 					startx: 1,
 					starty: 3
 				},
 				{
-					clue: "The speeds of engines without and accelaration",
-					answer: "idlespeeds",
+					clue: "A software that enables creating, deploying, running, or managing applications in the cloud",
+					answer: "cloudwares",
 					position: 8,
 					orientation: "across",
 					startx: 1,
 					starty: 5
 				},
 				{
-					clue: "Complex resistances",
-					answer: "impedances",
+					clue: "A hardware identification number that uniquely identifies each device on a network.",
+					answer: "macaddress",
 					position: 10,
 					orientation: "across",	
 					startx: 2,
 					starty: 7
 				},
 				{
-					clue: "This device is used to step-up, step-down, and/or isolate",
-					answer: "transformer",
+					clue: "It uses incremental, iterative work sequences that are commonly known as sprints.",
+					answer: "agilemethod",
 					position: 13,
 					orientation: "across",
 					startx: 1,
 					starty: 9
 				},
 				{
-					clue: "Type of ray emitted frm the sun",
-					answer: "gamma",
+					clue: "An action that occurs as a result of the user or another source",
+					answer: "event",
 					position: 16,
 					orientation: "across",
 					startx: 1,
 					starty: 11
 				},
 				{
-					clue: "C programming language operator",
-					answer: "cysan",
+					clue: "A hypothetical subatomic particle of low mass and energy that is postulated to exist because of certain properties of the strong force",
+					answer: "axion",
 					position: 17,
 					orientation: "across",
 					startx: 7,
 					starty: 11
 				},
 				{
-					clue: "Defines the alpha-numeric characters that are typically associated with text used in programming",
-					answer: "ascii",
+					clue: "The conference of a tech company to showcase its new software and technologies for software developers. (abbr.)",
+					answer: "awwdc",
 					position: 1,
 					orientation: "down",
 					startx: 1,
 					starty: 1
 				},
 				{
-					clue: "Generally, if you go over 1kV per cm this happens",
-					answer: "arc",
+					clue: "A a technology that is gaining popularity in high-speed Ethernet systems for the purpose of optimizing throughput.",
+					answer: "toe",
 					position: 2,
 					orientation: "down",
 					startx: 5,
 					starty: 1
 				},
 				{
-					clue: "Control system strategy that tries to replicate the human through process (abbr.)",
-					answer: "ann",
+					clue: "The retailing part of e-commerce on the Internet.  ",
+					answer: "b2c",
 					position: 4,
 					orientation: "down",
 					startx: 9,
 					starty: 1
 				},
 				{
-					clue: "Greek variable that usually describes rotor positon",
-					answer: "theta",
+					clue: "A file format standard for electronic business cards.",
+					answer: "vcard",
 					position: 6,
 					orientation: "down",
 					startx: 7,
 					starty: 3
 				},
 				{
-					clue: "Electromagnetic (abbr.)",
-					answer: "em",
+					clue: "A orderable or downloadable update to a customer's software (abbr.)",
+					answer: "sp",
 					position: 7,
 					orientation: "down",
 					startx: 11,
 					starty: 3
 				},
 				{
-					clue: "No. 13 across does this to a voltage",
-					answer: "steps",
+					clue: "The world's first commercially available quantum computer",
+					answer: "dwave",
 					position: 9,
 					orientation: "down",
 					startx: 5,
 					starty: 5
 				},
 				{
-					clue: "Emits a lout wailing sound",
-					answer: "siren",
+					clue: "An input stream where data is sent to and read by a program",
+					answer: "stdin",
 					position: 11,
 					orientation: "down",
 					startx: 11,
 					starty: 7
 				},
 				{
-					clue: "Information technology (abbr.)",
-					answer: "it",
+					clue: "Is a way of preventing mistakes or defects (abbr.)",
+					answer: "qa",
 					position: 12,
 					orientation: "down",
 					startx: 1,
 					starty: 8
 				},
 				{
-					clue: "Asynchronous transfer mode (abbr.)",
-					answer: "atm",
+					clue: "A software application that provides comprehensive facilities to computer programmers for software development. (abbr.)",
+					answer: "ide",
 					position: 14,
 					orientation: "down",
 					startx: 3,
 					starty: 9
 				},
 				{
-					clue: "Offset current control (abbr.)",
-					answer: "occ",
+					clue: "Electronic design automation",
+					answer: "eda",
 					position: 15,
 					orientation: "down",
 					startx: 7,
