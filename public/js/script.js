@@ -163,7 +163,7 @@ $(document).ready(function () {
 	});
 
 	$( "#btn_reguser" ).click(function() {
-	  clickPlay(ename, uname);
+	  clickPlay();
 	  	// ms
 		CountDown.Start(10000);	
 	});
@@ -245,7 +245,9 @@ $(document).ready(function () {
 });
 
 
-function clickPlay(ename, uname){
+function clickPlay( ){
+	var ename = $("#ename").val();
+	var uname = $("#uname").val();
 	alert("Playing with"+ ename+uname);
 
 	$("#user_preg").css("display","none");
