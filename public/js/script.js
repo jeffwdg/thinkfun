@@ -193,7 +193,7 @@ $(document).ready(function () {
             CurrentTime += TimeGap;
             if( CurrentTime >= EndTime ) {
                 GuiTimer.css('color','#f00');
-                var solvetime = $("#solvetime").val("0500");
+                var solvetime = "05:00";//$("#solvetime").val("500");
 				var totalsolve = $("#totalsolve").val();
 				var ename = $("#ename").val();
 				var uname = $("#uname").val();
