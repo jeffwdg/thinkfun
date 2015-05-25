@@ -312,9 +312,10 @@
 						solved.push(valToCheck);
 						solvedToggle = true;
 						if(solvedToggle == true){totalsolve++;}
-						
+						$('#totalsolve').val(totalsolve);
 						if(totalword == totalsolve){
 							solvetime = $("#timer").text();
+							$('#solvetime').val(solvetime);
 							alert("Completed within:"+solvetime+"Solved words:"+totalsolve);
 							updateLeaderboardTime(solvetime,totalsolve)
 						}
