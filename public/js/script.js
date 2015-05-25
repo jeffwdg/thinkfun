@@ -251,7 +251,7 @@ $(document).ready(function () {
 function clickPlay( ){
 	var ename = $("#ename").val();
 	var uname = $("#uname").val();
-	alert("Playing with"+ ename+uname);
+	//alert("Playing with"+ ename+uname);
 
 	$("#user_preg").css("display","none");
 }
@@ -274,6 +274,8 @@ function updateLeaderboardTime(ename, uname, solvetime, totalsolve){
 		  	$("#user_preg .panel .panel-heading h3").text("Time's up");
 		  	$("#user_preg .panel .panel-body").html("<h1>Time's up</h1><p>"+results+"</h1>");
 		  	$("#user_preg").css("display","block");	 
+
+		  	window.location.replace("https://thinkfun.mybluemix.net/leaderboard");
 		}	
 		});
 }
