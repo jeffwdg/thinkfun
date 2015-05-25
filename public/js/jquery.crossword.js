@@ -25,7 +25,7 @@
 			
 			// append clues markup after puzzle wrapper div
 			// This should be moved into a configuration object
-			this.after('<div id="puzzle-clues"><h2>Across</h2><ol id="across"></ol><h2>Down</h2><ol id="down"></ol></div>');
+			this.after('<div id="puzzle-clues"><b>Across</b><ol id="across"></ol><b>Down</b><ol id="down"></ol></div>');
 			
 			// initialize some variables
 			var tbl = ['<table id="puzzle">'],
@@ -319,7 +319,8 @@
 							solvetime = $("#timer").text();
 							$('#solvetime').val(solvetime);
 							alert("Completed within:"+solvetime+"Solved words:"+totalsolve);
-							updateLeaderboardTime(ename, uname, solvetime, totalsolve)
+
+							updateLeaderboardTime(ename, uname, solvetime,totalsolve)
 						}
 						console.log("Solved word:"+totalsolve);
 						return;
