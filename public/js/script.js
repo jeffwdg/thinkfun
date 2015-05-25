@@ -160,9 +160,12 @@ $(document).ready(function () {
 	});
 
 	$( "#btn_reguser" ).click(function() {
-	  clickPlay();
+	   var x = clickPlay();
 	  	// ms
-		CountDown.Start(10000);	
+	  	if(x==0){
+	  		CountDown.Start(300000);	
+	  	}
+		
 	});
 
 
@@ -251,9 +254,15 @@ $(document).ready(function () {
 function clickPlay( ){
 	var ename = $("#ename").val();
 	var uname = $("#uname").val();
+	var x = 1;
 	//alert("Playing with"+ ename+uname);
-
-	$("#user_preg").css("display","none");
+	if(!ename){
+		$("#enot").text("Please enter your full name.");
+	}else{
+		x =0;
+		$("#user_preg").css("display","none");
+	}
+	return x;
 }
 
 
