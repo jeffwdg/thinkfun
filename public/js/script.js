@@ -2,7 +2,10 @@ $(document).ready(function () {
 
 	//get user details
 	 
-	var uname = "";
+	var ename = $("#ename").val();
+	var uname = $("#uname").val();
+	var solvetime = $("#solvetime").val();
+	var totalsolve = $("#totalsolve").val();
 
 	var puzzleData = [
 			 	{
@@ -160,7 +163,7 @@ $(document).ready(function () {
 	});
 
 	$( "#btn_reguser" ).click(function() {
-	  clickPlay();
+	  clickPlay(ename, uname);
 	  	// ms
 		CountDown.Start(10000);	
 	});
@@ -194,7 +197,7 @@ $(document).ready(function () {
             if( CurrentTime >= EndTime ) {
                 GuiTimer.css('color','#f00');
                  
-                alert('Time ended!');
+                alert('Time ended!'+totalsolve+solvetime);
             }else if( (CurrentTime+ 5000) == EndTime){
             	GuiTimer.css('color','#faa');
             }
@@ -242,20 +245,29 @@ $(document).ready(function () {
 });
 
 
-function clickPlay(){
-
-	var name =	$("#name").val();
-	var uname = $("#uname").val();
-
-	alert("Playing with"+ name+uname);
+function clickPlay(ename, uname){
+	alert("Playing with"+ ename+uname);
 
 	$("#user_preg").css("display","none");
 }
 
 
 
-function updateLeaderboardTime(username, solvetime, totalsolve){
+function updateLeaderboardTime(ename, uname, solvetime, totalsolve){
 	 
 	alert("Updating leaderboard" +solvetime+totalsolve);
 	//update leaderboard
+	//call updatepoints
+	 var data = { email: ename, uname: uname, solvetime: totalsolve };
+
+	$.ajax({
+		url: "https://thinkfun.mybluemix.net/updatepoints",
+		data: data,
+		type: 'post',
+		dataType: 'html',
+		success: function(results){
+		  	console.log(results); 
+		  	alert(results);
+		}	
+		});
 }
