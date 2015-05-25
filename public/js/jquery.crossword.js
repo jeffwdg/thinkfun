@@ -313,11 +313,13 @@
 						solvedToggle = true;
 						if(solvedToggle == true){totalsolve++;}
 						$('#totalsolve').val(totalsolve);
+						var ename = $("#ename").val();
+						var uname = $("#uname").val();
 						if(totalword == totalsolve){
 							solvetime = $("#timer").text();
 							$('#solvetime').val(solvetime);
 							alert("Completed within:"+solvetime+"Solved words:"+totalsolve);
-							updateLeaderboardTime(solvetime,totalsolve)
+							updateLeaderboardTime(ename, uname, solvetime, totalsolve)
 						}
 						console.log("Solved word:"+totalsolve);
 						return;
