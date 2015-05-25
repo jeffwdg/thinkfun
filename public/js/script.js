@@ -199,7 +199,7 @@ $(document).ready(function () {
 				var uname = $("#uname").val();
 
 
-                alert('Time ended!'+totalsolve+solvetime);
+                //alert('Time ended!'+totalsolve+solvetime);
                 updateLeaderboardTime(ename, uname, solvetime, totalsolve);
             }else if( (CurrentTime+ 5000) == EndTime){
             	GuiTimer.css('color','#faa');
@@ -260,7 +260,7 @@ function clickPlay( ){
 
 function updateLeaderboardTime(ename, uname, solvetime, totalsolve){
 	 
-	alert("Updating leaderboard" + uname+ename+ solvetime+totalsolve);
+	//alert("Updating leaderboard" + uname+ename+ solvetime+totalsolve);
 	//update leaderboard
 	//call updatepoints
 	 var data = { email: ename, uname: uname, solvetime: totalsolve };
@@ -271,7 +271,9 @@ function updateLeaderboardTime(ename, uname, solvetime, totalsolve){
 		dataType: 'html',
 		success: function(results){
 		  	console.log(results); 
-		  	alert(results);
+		  	$("#user_preg .panel .panel-heading h3").text("Time's up");
+		  	$("#user_preg .panel .panel-body").html("<h1>Time's up</h1><p>"+results+"</h1>");
+		  	$("#user_preg").css("display","block");	 
 		}	
 		});
 }
