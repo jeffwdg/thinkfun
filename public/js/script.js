@@ -4,8 +4,7 @@ $(document).ready(function () {
 	 
 	var ename = $("#ename").val();
 	var uname = $("#uname").val();
-	var solvetime = $("#solvetime").val();
-	var totalsolve = $("#totalsolve").val();
+
 
 	var puzzleData = [
 			 	{
@@ -196,7 +195,8 @@ $(document).ready(function () {
             CurrentTime += TimeGap;
             if( CurrentTime >= EndTime ) {
                 GuiTimer.css('color','#f00');
-                 
+                var solvetime = $("#solvetime").val();
+				var totalsolve = $("#totalsolve").val();
                 alert('Time ended!'+totalsolve+solvetime);
             }else if( (CurrentTime+ 5000) == EndTime){
             	GuiTimer.css('color','#faa');
