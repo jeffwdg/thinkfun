@@ -202,7 +202,7 @@ $(document).ready(function () {
 				var uname = $("#uname").val();
 
 				$("#user_preg .panel .panel-heading h3").text("Time is up.");
-		  		$("#user_preg .panel .panel-body").html("<h1>Sorry!</h1><p>Time is up! </h1><p>You have completed "+totalsolve+" words. Check your rank on the leaderboard</p>");
+		  		$("#user_preg .panel .panel-body").html("<h1>Think again!</h1><p>You have completed "+totalsolve+" words. Check your rank on the leaderboard</p>");
 		  		$("#user_preg").css("display","block");	
                 //alert('Time ended!'+totalsolve+solvetime);
 
