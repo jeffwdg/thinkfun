@@ -194,7 +194,7 @@ $(document).ready(function () {
         // Countdown if running
         if( Running ) {
             CurrentTime += TimeGap;
-            var solvetime = $("#solvetime").val();
+             
             if( CurrentTime >= EndTime ) {
                 GuiTimer.css('color','#f00');
                 var solvetime = "00:00";//$("#solvetime").val("500");
