@@ -78,7 +78,7 @@ $(document).ready(function () {
 					starty: 1
 				},
 				{
-					clue: "A a technology that is gaining popularity in high-speed Ethernet systems for the purpose of optimizing throughput.",
+					clue: "A technology that is gaining popularity in high-speed Ethernet systems for the purpose of optimizing throughput.",
 					answer: "toe",
 					position: 2,
 					orientation: "down",
@@ -102,7 +102,7 @@ $(document).ready(function () {
 					starty: 3
 				},
 				{
-					clue: "A orderable or downloadable update to a customer's software (abbr.)",
+					clue: "An orderable or downloadable update to a customer's software (abbr.)",
 					answer: "sp",
 					position: 7,
 					orientation: "down",
@@ -142,7 +142,7 @@ $(document).ready(function () {
 					starty: 9
 				},
 				{
-					clue: "Electronic design automation",
+					clue: "Electronic design automation (abbr.)",
 					answer: "eda",
 					position: 15,
 					orientation: "down",
