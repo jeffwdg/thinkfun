@@ -298,5 +298,5 @@ function updateLeaderboardTime(ename, uname, solvetime, totalsolve){
 }
 
 function toLeaderboard() {
-    setTimeout(function(){ window.location.replace("https://thinkfun.mybluemix.net/leaderboard"); }, 3000);
+    setTimeout(function(){ window.location.replace("https://thinkfun.mybluemix.net/leaderboard"); }, 10000);
 }
