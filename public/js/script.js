@@ -276,6 +276,8 @@ function updateLeaderboardTime(ename, uname, solvetime, totalsolve){
 	//alert("Updating leaderboard" + uname+ename+ solvetime+totalsolve);
 	//update leaderboard
 	//call updatepoints
+	if(totalsolve <10){totalsolve = "0"+totalsolve;}
+	
 	var data = { email: ename, uname: uname, solvetime: totalsolve };
 
 
