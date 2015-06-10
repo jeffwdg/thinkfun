@@ -318,7 +318,7 @@
 						if(totalword == totalsolve){
 							solvetime = $("#timer").text();
 							$('#solvetime').val(solvetime);
-							alert("Completed within:"+solvetime+"Solved words:"+totalsolve);
+							//alert("Completed within:"+solvetime+"Solved words:"+totalsolve);
 
 							updateLeaderboardTime(ename, uname, solvetime,totalsolve)
 						}
